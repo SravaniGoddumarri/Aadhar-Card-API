@@ -1,5 +1,6 @@
 """FastAPI Aadhar Enrollment CRUD Application."""
 from fastapi import FastAPI, Depends, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from datetime import datetime
 
@@ -18,6 +19,16 @@ app = FastAPI(
     version=settings.app_version,
     description="A CRUD API for Aadhar enrollment management built with FastAPI and SQLAlchemy"
 )
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (change to specific URLs in production)
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
+
 
 
 @app.get("/", tags=["Root"])
