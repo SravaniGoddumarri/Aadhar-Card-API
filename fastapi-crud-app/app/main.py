@@ -14,9 +14,9 @@ Base.metadata.create_all(bind=engine)
 
 # Create FastAPI app
 app = FastAPI(
-    title=\"Aadhar Enrollment System\",
+    title="Aadhar Enrollment System",
     version=settings.app_version,
-    description=\"A CRUD API for Aadhar enrollment management built with FastAPI and SQLAlchemy\"
+    description="A CRUD API for Aadhar enrollment management built with FastAPI and SQLAlchemy"
 )
 
 
